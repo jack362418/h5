@@ -3,6 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'amfe-flexible'
+
+import { Button } from 'vant';
+
+Vue.use(Button);
+import 'vant/lib/index.css';
 
 Vue.config.productionTip = false
 
