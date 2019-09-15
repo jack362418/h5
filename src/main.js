@@ -3,7 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import 'amfe-flexible'
+
+import * as api from './api'
+Vue.prototype.$http = api
 
 import { Button } from 'vant';
 
@@ -16,6 +20,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
