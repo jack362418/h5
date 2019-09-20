@@ -1,15 +1,24 @@
 <template>
-  <div>
-    <h2> 模板 </h2>
+  <div class="ant">
+    <h1> {{ name }} </h1>
   </div>
 </template>
 
 <script>
   export default {
-
+    name: "home",
+    data() {
+     return{
+       name: '模板'
+     }
+    }
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+  .ant{
+    h1{
+      color: #f40;
+    }
+  }
 </style>

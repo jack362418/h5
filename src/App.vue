@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/logo.png" >
     <van-button type="default">默认按钮</van-button>
     <van-button type="primary">主要按钮</van-button>
     <van-button type="info">信息按钮</van-button>
@@ -12,7 +12,10 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+
+  }
 }
 </script>
 
@@ -28,7 +31,7 @@ export default {
   margin-top: 60px;
 }
 img{
-  height: 350px;
+  height: 375px;
   width: 100%;
 }
 </style>
