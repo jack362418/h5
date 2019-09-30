@@ -19,6 +19,7 @@ module.exports = {
     img: 'src',
     image: 'xlink:href'
   },
+
   postcss: {
     plugins: [
       require('postcss-plugin-px2rem')({

@@ -5,16 +5,19 @@ import App from './App'
 import router from './router'
 import store from './store'
 import 'amfe-flexible'
+import 'vant/lib/index.css';
+import './style/reset.css'
 
+import '@/permission'
 import * as api from './api'
 Vue.prototype.$http = api
 
-import { Button } from 'vant';
+import { DatetimePicker,Tabbar, TabbarItem,Popup} from 'vant';
 
-Vue.use(Button);
-import 'vant/lib/index.css';
+Vue.use(DatetimePicker).use(Popup).use(Tabbar).use(TabbarItem);
 
 Vue.config.productionTip = false
+
 
 /* eslint-disable no-new */
 new Vue({

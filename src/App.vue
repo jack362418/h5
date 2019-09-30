@@ -1,37 +1,35 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" >
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="info">信息按钮</van-button>
-    <van-button type="warning">警告按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>
-    <router-view/>
+    <transition>
+      <router-view/>
+    </transition>
+    <tabber />
   </div>
 </template>
 
 <script>
+  import tabber from './components/comment/footer'
 export default {
-  name: 'App',
-  methods: {
-
-  }
+    data() {
+      return {
+        isShow: false
+      }
+    },
+   components: {
+     tabber
+   }
 }
 </script>
 
-<style>
-  ::-webkit-scrollbar{width:0;height:0px}
+<style scoped lang="less">
+  /*.v-enter,.v-leave-to{*/
+    /*transform: translate3d(100%,0,0);*/
+  /*}*/
+  /*.v-enter-active,.v-leave-active{*/
+    /*transition:all 0.3s;*/
+  /*}*/
+  #app{
+    width: 100%;
+  }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-img{
-  height: 375px;
-  width: 100%;
-}
 </style>

@@ -12,6 +12,7 @@
   "dependencies": {
     "amfe-flexible": "^2.2.1",
     "axios": "^0.19.0",
+    "better-scroll": "^1.15.2",
     "js-cookie": "^2.2.1",
     "postcss-plugin-px2rem": "^0.8.1",
     "vant": "^2.2.1",

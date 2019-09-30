@@ -15,12 +15,12 @@ export function upload(data) {
 }
 /* 通用api */
 /* 登录信息模块begin*/
-export function login(username, password) {
+export function login(loginName, password) {
   return request({
-    url: '/admin/login',
+    url: '/account/token',
     method: 'post',
     data: {
-      username,
+      loginName,
       password
     }
   })
@@ -31,6 +31,38 @@ export function logout() {
     url: '/admin/logout',
     method: 'post',
     data: {}
+  })
+}
+
+//查询所有会议记录
+export function getAllRecord(data) {
+  return request({
+    url: '/room/findAllRecord?date='+ data.date + '&pageNum='+ data.page ,
+    method: 'get'
+  })
+}
+
+//获取用户个人信息
+export function getInfo(data) {
+  return request({
+    url: '/account/info',
+    method: 'get'
+  })
+}
+
+//获取我的预约记录
+export function getMyReservation(data) {
+  return request({
+    url: '/room/queryMyReservation?data=' + data.page,
+    method: 'get'
+  })
+}
+
+//查询会议室预约详情
+export function getReservationDetail(data) {
+  return request({
+    url: '/room/findAllRecord?id='+ data.id + '&date=' + data.date,
+    method: 'get'
   })
 }
 

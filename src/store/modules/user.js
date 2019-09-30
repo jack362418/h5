@@ -9,7 +9,7 @@ const user = {
     token: getToken(),
     name: '',
     avatar: '',
-    roles: ['']
+    roles: false
   },
 
   mutations: {
@@ -30,25 +30,30 @@ const user = {
   actions: {
     // 登录
     Login({ commit }, userInfo) {
-      const username = userInfo.username.trim()
+      const loginName = userInfo.loginName.trim()
       console.log(userInfo)
       return new Promise((resolve, reject) => {
-        login(username, userInfo.password).then(response => {
+        login(loginName, userInfo.password).then(response => {
           const data = response.data
           if (response.code === 0 || response.code === 200) {
-            setToken(data.session_id)
-            localStorage.setItem('token', data.session_id) // 本地缓存token
-            setToken('username', username)
-            localStorage.setItem('username', username) // 本地缓存用户名
-            commit('SET_TOKEN', data.session_id)
-            commit('SET_ROLES', ['admin'])
-            commit('SET_NAME', username)
+            setToken(data.token)
+            localStorage.setItem('token', data.token) // 本地缓存token
+            // setToken('username', loginName)
+            localStorage.setItem('username', loginName) // 本地缓存用户名
+            commit('SET_ROLES', data.roles)
+            commit('SET_TOKEN', data.token)
+            // commit('SET_ROLES', ['admin'])
+            commit('SET_NAME', loginName)
             resolve(response)
           }
         }).catch(error => {
           reject(error)
         })
       })
+    },
+
+    Roles({ commit }, roles) {
+      commit('SET_ROLES', roles)
     },
 
     // 本地storage用户信息存入store
